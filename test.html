@@ -1,0 +1,156 @@
+<script type="text/javascript" src="../../Scripts/studentk1home/bootstrap.min.js"></script>
+<link href="../../Scripts/Camera/jpeg_camera.css" rel="stylesheet" />
+<script src="../../Scripts/Camera/camera.js"></script>
+<script type="text/javascript">
+        $(document).ready(function () {
+            teacherHome.GetCurrentTeacherProfileAvatar();
+            $(".btn-close").on("click", function (e) {
+                $("#myModal").hide();
+            });
+
+            $("#TeacherProfileImage").on("click", function (e) {
+                $.ajax({
+                    url: "/uiservice/EGTeacherService.aspx/GetCurrentTeacherProfileAvatar",
+                    type: "POST",
+                    dataType: "json",
+                    contentType: "application/json; charset=utf-8",
+                    async: true,
+                    success: function (response) {
+                        if (JSON.parse(response.d).ProfileImage !== null || JSON.parse(response.d).ProfileImage !== '' || JSON.parse(response.d).ProfileImage !== "") {
+                            $("#imgViewprofile").attr("src", '' + JSON.parse(response.d).ProfileImage + '');
+                            $("#viewProfilePicture").modal('show');
+                        }
+                    }
+                });
+            });
+            EGCommonGoogleClassModule.init({
+            });
+
+        });
+    </script>
+<script>
+        function getCookie(key) {
+            var b = document.cookie.match("(^|;)\\s*" + key + "\\s*=\\s*([^;]+)");
+            return b ? b.pop() : undefined;
+        }
+        function showLinkedParents(container) {
+            $('#myModal').addClass('increase-width');
+            $("#qrCode").removeAttr("style");
+            $('#qrCode').addClass('align_inline');
+            $('#parent-content').addClass('align_inline');
+            $('.parent-content-link').hide();
+            toggleLayer(container);
+        }
+
+
+        function showPersonalizedSettings() {
+            popdiv = document.getElementById('popupPersonalizedSettings');
+            popdiv.style.display = "block";
+            pdiv = document.getElementById('personalizedSettings');
+            pdiv.style.display = "block";
+        };
+
+        function hidePersonalizedSettings() {
+            popdiv = document.getElementById('popupPersonalizedSettings');
+            popdiv.style.display = "none";
+            pdiv = document.getElementById('personalizedSettings');
+            pdiv.style.display = "none";
+            //location.reload(true);
+        }
+        function showStudentMessage() {
+            $("#studentMessageContent iframe").attr("src", $("#chatApplicationUrl").val())
+            popdiv = document.getElementById('popupStudentMessage');
+            popdiv.style.display = "block";
+            pdiv = document.getElementById('studentMessage');
+            pdiv.style.display = "block";
+        };
+
+        function hideStudentMessage() {
+            popdiv = document.getElementById('popupStudentMessage');
+            popdiv.style.display = "none";
+            pdiv = document.getElementById('studentMessage');
+            pdiv.style.display = "none";
+            //location.reload(true);
+            $("#studentMessageContent iframe").attr("src", "");
+            $("#studentMessageContent iframe").html("")
+        }
+
+        function toggleLayer(whichLayer) {
+            var elem, vis;
+            if (document.getElementById) elem = document.getElementById(whichLayer);
+            vis = elem.style;
+            if (vis.display == '' && elem.offsetWidth != undefined && elem.offsetHeight != undefined) vis.display = (elem.offsetWidth != 0 && elem.offsetHeight != 0) ? 'block' : 'none'; vis.display = (vis.display == '' || vis.display == 'block') ? 'none' : 'block';
+        }
+        $(function () {
+            utility.init({});
+            $.switcher('input.form-check-input');
+            setPersonalizedSettings();
+        });
+
+        function closeParentConnect(container) {
+            $('#myModal').hide();
+            $('#myModal').removeClass('increase-width');
+            $("#qrCode").removeClass('align_inline');
+            $('#parent-content').removeClass('align_inline');
+            toggleLayer(container);
+            $('.parent-content-link').show();
+            $('#parent-content').hide();
+
+        }
+
+        function setPersonalizedSettings() {
+            if (window.location.href.indexOf("/admin/") === -1) {
+                var userContext = $.cookie("CurrentUserContext") != null ? JSON.parse($.cookie("CurrentUserContext").replace("CurrentUserContext=", "")) : null;
+                if (userContext != null) {
+                    if (userContext.BackgroundColor !== null && userContext.BackgroundColor !== undefined && userContext.BackgroundColor !== "") {
+                        $("body").removeClass("bodyGreenBackground");
+                        $("body").css("background", userContext.BackgroundColor);
+                    }
+
+                    if (userContext.HeaderImageUrl !== null && userContext.HeaderImageUrl !== undefined && userContext.HeaderImageUrl !== "") {
+                        $(".TeacherHeader").css("background-image", 'url("' + userContext.HeaderImageUrl + '")');
+                    }
+                }
+            }
+        }
+
+
+
+        $(document).ready(function () {
+            setPersonalizedSettings();
+            $("#ctl00_HeadLoginView_HeadLoginStatus").on('click', function () { sessionStorage.clear(); })
+            $(".RadMenu").find("li").find("a[title='personalizeSettings']").on('click', function () {
+                PersonalizeSetting.GetPersonalizedHeaderImages(265, 185);
+                showPersonalizedSettings();
+            });
+
+            $(".StudentMessaging").on('click', function () {
+                showStudentMessage();
+            });
+
+            $(".RadMenu").find("li").find("a[title='starMessage']").on('click', function () {
+                $('#modalStarMessage').show();
+            });
+
+            var starMessage = $(".RadMenu").find("li").find("a[title='starMessage']");
+            if (starMessage.length > 0) {
+                $(".RadMenu").find("li.rmLast").addClass("star-message_last");
+            }
+            if (window.top != window.self && window.self.location.href.indexOf('student/home.aspx') === -1) {
+                $(".dashboardHide").hide();
+                applyDashboardUIchanges();
+            }
+            else {
+                $('#z1').css('background', 'rgb(186, 215, 55)');
+            }
+        });
+        function applyDashboardUIchanges() {
+            $('#z1').css('background', '#FFFFFF');
+            $('.TeacherHeader').css('display', 'none');
+            $('#mainPage').css('border', '0');
+            $('#mainPage').css('margin', '0 auto 0 auto');
+            $('#mainPage').css('width', '100%');
+            $('.main').css('min-height', '100%');
+        }
+
+    </script>

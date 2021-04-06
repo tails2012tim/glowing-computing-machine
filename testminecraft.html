@@ -1,0 +1,16 @@
+player.onChat("goldstairs", function () {
+    builder.teleportTo(pos(0, 0, 0))
+    for (let index = 0; index < 25; index++) {
+        builder.move(FORWARD, 1)
+        builder.move(UP, 1)
+    }
+    builder.tracePath(GOLD_BLOCK)
+    mobs.teleportToPosition(
+    mobs.target(ALL_PLAYERS),
+    pos(0, 0, 0)
+    )
+    gameplay.setGameMode(
+    SURVIVAL,
+    mobs.target(ALL_PLAYERS)
+    )
+})

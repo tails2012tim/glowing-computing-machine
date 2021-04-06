@@ -1,0 +1,666 @@
+
+<!DOCTYPE html>
+<!--[if lt IE 7 ]>
+<html class="ie ie6"> <![endif]-->
+<!--[if IE 7 ]>
+<html class="ie ie7"> <![endif]-->
+<!--[if IE 8 ]>
+<html class="ie ie8"> <![endif]-->
+<!--[if IE 9 ]>
+<html class="ie ie9"> <![endif]-->
+<!--[if (gt IE 9)|!(IE)]><!-->
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en"><!--<![endif]-->
+<head>
+
+	<!--
+	If translation user is logged in, prepare application for translation:
+ 		-> Set app-language to pseudo-language ('aa')
+ 		-> Load JS scripts from Crowdin to enable In-Context editing
+ -->
+
+
+    <!-- Google Tag Manager -->
+    <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+                new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+            j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+            'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+        })(window,document,'script','dataLayer','GTM-TNVMQJV');</script>
+    <!-- End Google Tag Manager -->
+
+    <!-- Fix GA Event Tracking  -->
+    <script>
+        window['GoogleAnalyticsObject'] = 'ga';
+        window['ga'] = window['ga'] || function() {
+            (window['ga'].q = window['ga'].q || []).push(arguments)
+        };
+    </script>
+    <!-- End Fix GA Event Tracking  -->
+
+    <script  type="text/javascript" >
+var LABELS = {};
+LABELS.customizerAdvanced='Advanced';
+LABELS.customizerHide='Hide';
+LABELS.colorpickerApply='Apply';
+LABELS.shortcodeSave='Save';
+LABELS.shortcodeEdit='Edit';
+LABELS.errorDialogTitle='Note';
+LABELS.genericTitleNotice='Note';
+LABELS.accountDialogTitle='Account Access';
+LABELS.accountDialogNotNowButton='Thank you, not now.';
+LABELS.accountDialogUpgradeButton='Show plans';
+LABELS.featureRestricted='Your account type does not permit the use of this feature.';
+LABELS.validationDialogTitle='Please correct';
+LABELS.accountNoTrackingMessage='Tracking information is not available for your account type.';
+LABELS.moveToArchiveMessage='You are moving an item to the archive. You can view it by clicking on the ARCHIVE tab.';
+LABELS.dialogTitleConfirmation='Confirmation';
+LABELS.noQrcodesSelected='Please select codes.';
+LABELS.archiveDialogMessage='You are moving an item to the archive. You can view it by clicking on the ARCHIVE tab.';
+LABELS.restoreDialogMessage='You are restoring an item. You can view it by clicking on the MANAGE tab.';
+LABELS.deleteDialogMessage='You are deleting an item. All data related to this item will be erased and can not be restored.';
+LABELS.massDeleteDialogMessage='You are deleting items. All data related to those items will be erased and can not be restored.';
+LABELS.deleteOriginalImgFile='This file will be deleted permanently!';
+LABELS.downloadCSV='Do you want to download the CSV file?';
+LABELS.resetScans='Do you want to reset all scans?';
+LABELS.removeLogo='Do you want to remove the logo?';
+LABELS.unlinkDomain='Do you want to unlink this domain?';
+LABELS.updateOriginalImgFile='File changes cannot be undone!';
+LABELS.upgradeAccountUrl='/upgrade';
+var webroot = 'https://app.qr-code-generator.com';</script>
+	<script type="text/javascript">
+        var GLOBAL_CSRF_TOKEN = '168456173ff40e777354310395871ac9dc8c8f98';
+        var GLOBAL_API_TOKEN = 'SZku_4ph4dKEoFlWzTriaJ81upHIM1udCaz-9g9-7gYlzyB8KLXu1O-gQM3XF_kS';
+        var GLOBAL_API_ENDPOINT = '//api.qr-code-generator.com';
+        var GLOBAL_APIV2_TOKEN = 'eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJhdWQiOiIxIiwianRpIjoiMDNjNDIzMmE4OTJkZDk5Nzk3M2IzNTYzNjJhZDY4ZWIwMGQxZTM3ZWI1ZmMzY2E3N2ExYTdjNTZmOGZhY2YzOGFiZjdiN2Y1YzhiOGFlNmUiLCJpYXQiOjE2MTQ4ODg0NzQsIm5iZiI6MTYxNDg4ODQ3NCwiZXhwIjoxNjQ2NDI0NDc0LCJzdWIiOiIxMTg5MjQwNCIsInNjb3BlcyI6W119.fXFJt3Yp8VGXSOR1a6TMLTu2zKjeKul8QI6AQgDfSpIV9-c1Ub-dToF4P5_uTtognmxMevvmzobsmYZriE_r-69XLkYVf4lb7kpodvxqZame3tgzKNhP4a8BY6BswUMmHghixqn7sDar5Ojrrsr7gvY1ABh611BCFSauEP37rSFkRgfapSgF2sl-tLe2ud49205RJtAGWMNvjCcHFANipAuqycDEE50G6NhO_vwK7ukCUxsDSCKbuR1bh4ci9y6utsjgVZz8D6zl2d66OUKR3AFU0icfqZDDOAKfsclnUJBaVCESPx5rSAWhRLRxuYHokD7hCDOuwiHKgHhv-DTUeyBeSg_S9mVgQUNlAEbrCM29SNmAuUoKenPoByYm-IUbFBjf6e42vxQXm8B0kpTBVsvubYQt5oiV7lp8CcsGKDHlIlYMtyrFO-B-Hb-tQc90mEKrONx2ht-rm6GskheG0-3mxr2RTqQxIO3nqTXeKuXMOZxCBJqCqHrcX8Fj3h4CpU_GBgy56sUVnyo6J0JgZVdhfXaMF0JK3cR3k5ZI9Ui5QU8DgNYVIXYAAOzpZuXb6jgjrw339Fjr7MifzOX7YpmCH6fovzz52-Mm_N5on1NTAShQmrB78JskgDvjVinOUdvnEbYY2bjeO513Bhzl50T1XrKx98pdBldIMXFaCrA';
+        var GLOBAL_APIV2_ENDPOINT = 'https://apiv2.qr-code-generator.com';
+        var CDN_URL = '//cdn.qr-code-generator.com';
+        //Formly Form Production settings
+        window.onProd = true;
+        window.CDN_URL = CDN_URL;
+	</script>
+	<!--[if lt IE 9]>
+	<script type="text/javascript" src="/js/polyfills/ie8.js"></script>
+	<![endif]-->
+
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <meta name="google-site-verification" content="OOYsMjeqY2kq4Dr-jNSseyx0zi5zhdTGqBYow0CCvQ0"/>
+	<meta name="language" content="en"/>
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<!--	<meta name="viewport" content="width=device-width, initial-scale=1">-->
+    <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width, height=device-height, target-densitydpi=device-dpi" />
+    <meta name="msapplication-config" content="none"/>
+	<link rel="shortcut icon" href="/img/favicon/favicon.ico" type="image/x-icon"/>
+	<link rel="icon" type="image/vnd.microsoft.icon" href="/img/favicon/favicon.ico">
+	<link rel="apple-touch-icon" href="/touch-icon-iphone.png">
+	<link rel="apple-touch-icon" sizes="76x76" href="/touch-icon-ipad.png">
+	<link rel="apple-touch-icon" sizes="120x120" href="/touch-icon-iphone-retina.png">
+	<link rel="apple-touch-icon" sizes="152x152" href="/touch-icon-ipad-retina.png">
+	<!--
+	<link href="/public/lib/materialize/bin/materialize-custom.css" type="text/css" rel="stylesheet" media="screen,projection"/>
+	-->
+	<link rel="stylesheet" type="text/css" href="/css/build/libs.min.css?v=1.228" />
+<link rel="stylesheet" type="text/css" href="/css/build/app.min.css?v=1.228" />
+<link rel="stylesheet" type="text/css" href="//cdn.qr-code-generator.com/public/lib/custom-download/VueCustomDownload.css?v=1.228" />
+<script type="text/javascript" src="//cdn.qr-code-generator.com/assets/77c209ac/jquery.min.js"></script>
+<script type="text/javascript" src="//cdn.qr-code-generator.com/js/build/libs.min.js?v=1.228"></script>
+<script type="text/javascript" src="//cdn.qr-code-generator.com/js/build/app.min.js?v=1.228"></script>
+<script type="text/javascript" src="//cdn.qr-code-generator.com/js/build/angular.inapp.min.js?v=1.228"></script>
+<script type="text/javascript" src="//cdn.qr-code-generator.com/public/lib/custom-download/VueCustomDownload.umd.js?v=1.228"></script>
+<title>QR Code Generator - New Manage</title>
+
+	<!--  Mixpanel:start -->
+	<script type="text/javascript">
+        !function (e, t) {
+            if (!t.__SV) {
+                var n, p, i, r;
+                window.mixpanel = t, n = e.createElement("script"), n.type = "text/javascript", n.async = !0, n.src = ("https:" === e.location.protocol ? "https:" : "http:") + "//cdn.mxpnl.com/libs/mixpanel-2.2.min.js", p = e.getElementsByTagName("script")[0], p.parentNode.insertBefore(n, p), t._i = [], t.init = function (e, n, p) {
+                    function o(e, t) {
+                        var n = t.split(".");
+                        2 == n.length && (e = e[n[0]], t = n[1]), e[t] = function () {
+                            e.push([t].concat(Array.prototype.slice.call(arguments, 0)))
+                        }
+                    }
+
+                    var a = t;
+                    for ("undefined" != typeof p ? a = t[p] = [] : p = "mixpanel", a.people = a.people || [], a.toString = function (e) {
+                        var t = "mixpanel";
+                        return "mixpanel" !== p && (t += "." + p), e || (t += " (stub)"), t
+                    }, a.people.toString = function () {
+                        return a.toString(1) + ".people (stub)"
+                    }, i = "disable track track_pageview track_links track_forms register register_once alias unregister identify name_tag set_config people.set people.increment people.append people.track_charge people.clear_charges people.delete_user".split(" "), r = 0; r < i.length; r++)o(a, i[r]);
+                    t._i.push([e, n, p])
+                }, t.__SV = 1.2
+            }
+        }(document, window.mixpanel || []);
+        mixpanel.init("c419019ef7bb5c151a51c96f3f509001");
+        window.LANG = "en";
+	</script>
+	<!-- Mixpanel:end  -->
+
+	<!-- Intercom:start -->
+	<script>
+
+        window.intercomSettings = {
+            user_id: "11892404",
+            user_hash: "03508e5e907e905dc6b7e451a086fa1fe37e1ff3f233847cc118d4a157ef3f00",
+            created_at: "2021-01-14 21:41:54",
+            language_override: "en",
+            hide_default_launcher: true,
+
+                        account_type: "trial",
+			
+			            app_id: "u4ys98rc"
+			        };
+
+		        window.intercomSettings = $.extend(window.intercomSettings, {"id":"11892404","codes":5,"code_dynamic":"5","code_static":"0","account_type":"trial"});
+		
+        //Libaray
+        !function () {
+            function t() {
+                var t = a.createElement("script");
+                t.type = "text/javascript", t.async = !0, t.src = "https://widget.intercom.io/widget/u4ys98rc";
+                var e = a.getElementsByTagName("script")[0];
+                e.parentNode.insertBefore(t, e)
+            }
+
+            var e = window, n = e.Intercom;
+            if ("function" == typeof n) n("reattach_activator"), n("update", intercomSettings); else {
+                var a = document, c = function () {
+                    c.c(arguments)
+                };
+                c.q = [], c.c = function (t) {
+                    c.q.push(t)
+                }, e.Intercom = c, e.attachEvent ? e.attachEvent("onload", t) : e.addEventListener("load", t, !1)
+            }
+        }();
+
+        //Init
+        Intercom('boot', window.intercomSettings);
+	</script>
+	<!-- Intercom:end -->
+
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/babel-polyfill/7.6.0/polyfill.min.js"></script>
+
+	<!--[if lt IE 9]>
+	<script type="text/javascript"
+	        src="https://cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.2/html5shiv.min.js"></script>
+	<script type="text/javascript"
+	        src="https://cdnjs.cloudflare.com/ajax/libs/respond.js/1.4.2/respond.min.js"></script>
+	<![endif]-->
+
+	<!--[if lte IE 9]>
+	<script type="text/javascript"
+	        src="https://cdnjs.cloudflare.com/ajax/libs/placeholders/3.0.2/placeholders.js"></script>
+	<![endif]-->
+
+	<!--[if IE]>
+	<link href="/css/build/ie.css" rel="stylesheet" type="text/css"/>
+	<![endif]-->
+
+</head>
+
+
+<body class="_noheaderbutton no-default ab__industry-search" data-spy="scroll" data-offset="100" ng-app="app" ng-cloak>
+
+<!--Start:Required for google tagmanager -->
+<div class="google-tagmanager-trial-account hidden"></div>
+<div class="google-tagmanager-customerid hidden">11892404</div>
+<!--End:Required for google tagmanager -->
+
+<!-- Google Tag Manager (noscript) -->
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-TNVMQJV"
+                  height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+<!-- End Google Tag Manager (noscript) -->
+<div id="wrapper" ng-class="states.viewType" ng:controller="MobilePreviewController">
+	<div class="device-xs visible-xs"></div>
+	<div class="device-sm visible-sm"></div>
+	<div class="device-md visible-md"></div>
+	<div class="device-lg visible-lg"></div>
+	
+                        <div id="qr-navbar-v2" ng-style="getNavbarStyle()" ng-controller="qrNavbarCtrl"
+         ng-init="route='manage/new'" data-navbar>
+        <div class="qr-navbar"
+             ng-class="{'qr-navbar--relative' : route == 'upgrade/paymentform' || route == 'upgrade/index' || route == 'upgrade/new'}">
+            <div class="qr-navbar__element" ng-hide="route == 'create/index' || route == 'create/new'">
+                <!-- START: Logo Desktop -->
+                <img class="qr-navbar-v2__logo qr-navbar-v2__logo--desktop" src="/img/qrcg-pro-logo.svg" alt="">
+                <!-- END: Logo Desktop -->
+
+                <!-- START: Logo Mobile -->
+                <img class="qr-navbar-v2__logo qr-navbar-v2__logo--mobile" src="/img/qrcg-pro-logo-short.svg" alt="">
+                <!-- END: Logo Mobile -->
+            </div>
+
+            <div class="qr-navbar__element" ng-hide="route == 'create/index' || route == 'create/new'">
+                <div class="qr-navbar-v2__separator"></div>
+            </div>
+
+            <div class="qr-navbar__element">
+                <div class="qr-navbar-v2__button qr-navbar-v2__menu-trigger noselect"
+                     ng-click="toggleMenu(); sidebarOpen = !sidebarOpen"
+                     ng-show="route == 'manage/new'">
+                    <svg ng-show="!sidebarOpen" xmlns="http://www.w3.org/2000/svg" width="22" height="12" viewBox="0 0 22 12"><path class="a" d="M22,18H10a1,1,0,0,1,0-2H22a1,1,0,0,1,0,2ZM23,7a1,1,0,0,0-1-1H10a1,1,0,0,0,0,2H22A1,1,0,0,0,23,7Zm0,5a1,1,0,0,0-1-1H10a1,1,0,0,0,0,2H22A1,1,0,0,0,23,12ZM6.707,16.707a1,1,0,0,0,0-1.414L3.414,12,6.707,8.707A1,1,0,1,0,5.293,7.293l-4,4a1,1,0,0,0,0,1.414l4,4a1,1,0,0,0,1.414,0Z" transform="translate(-1 -6)"/></svg>
+                    <svg ng-show="sidebarOpen" xmlns="http://www.w3.org/2000/svg" width="22" height="12" viewBox="0 0 22 12">
+                        <path class="a" d="M2,6H14a1,1,0,0,1,0,2H2A1,1,0,0,1,2,6ZM1,17a1,1,0,0,0,1,1H14a1,1,0,0,0,0-2H2A1,1,0,0,0,1,17Zm0-5a1,1,0,0,0,1,1H14a1,1,0,0,0,0-2H2A1,1,0,0,0,1,12ZM17.293,7.293a1,1,0,0,0,0,1.414L20.586,12l-3.293,3.293a1,1,0,1,0,1.414,1.414l4-4a1,1,0,0,0,0-1.414l-4-4a1,1,0,0,0-1.414,0Z" transform="translate(-1 -6)"/>
+                    </svg>
+                </div>
+            </div>
+
+            <div class="qr-navbar__element">
+                <div class="qr-navbar-v2__button qr-navbar-v2__back-btn noselect" ng-show="route != 'manage/new'">
+                    <a ng-click="goBack($event)" href="{{ route == 'upgrade/paymentform' ? '/upgrade/?from=paymentform' : '/manage' }}">
+
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+                            <path class="b" d="M22.923,12.382a1,1,0,0,0-.217-1.09l-8-8a1,1,0,1,0-1.414,1.414L19.586,11H2a1,1,0,0,0,0,2H19.586l-6.293,6.293a1,1,0,1,0,1.414,1.414l8-8a1.011,1.011,0,0,0,.216-.325Z" transform="translate(0 0.002)"/>
+                        </svg>
+
+                        <span ng-show="route != 'create/index' && route != 'create/new'">Back</span>
+
+                    </a>
+                </div>
+            </div>
+
+            <div class="qr-navbar__element pull-right"
+                 ng-show="route == 'upgrade/paymentform' || route == 'upgrade/index' || route == 'upgrade/new'">
+
+                <div class="qr-navbar__element qr-navbar__element_limit-container qr-navbar-v2__alert-container qr-navbar-v2__alert-container--desktop">
+                    <div class="qr-navbar__element qr-navbar__element_limit-text-plan qr-navbar-v2__alert-container-text">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+                            <path class="b" d="M6.57,3h0a1.009,1.009,0,0,1,.981.793l.758,3.56L7.268,8.389,6.145,9.507l.831,1.349a18.971,18.971,0,0,0,6.217,6.2l1.344.823,1.114-1.115L16.712,15.7l3.5.746a1.007,1.007,0,0,1,.793.98V19a2.01,2.01,0,0,1-2.012,2,2.074,2.074,0,0,1-.455-.051A20.489,20.489,0,0,1,3.051,5.467a2.033,2.033,0,0,1,.4-1.721A1.966,1.966,0,0,1,5,3H6.57m0-2H5A4.013,4.013,0,0,0,1.1,5.9a22.467,22.467,0,0,0,17,17,4.08,4.08,0,0,0,.89.1A4.009,4.009,0,0,0,23,19V17.429a3,3,0,0,0-2.376-2.936l-3.495-.746a2.047,2.047,0,0,0-.418-.044,2,2,0,0,0-1.417.587l-1.057,1.057A16.88,16.88,0,0,1,8.679,9.806l1.04-1.035a2,2,0,0,0,.547-1.838L9.507,3.376A3,3,0,0,0,6.57,1Z"/>
+                        </svg>
+                        <span>
+                            Call our sales team: +1 646 712-9308                        </span>
+                    </div>
+                </div>
+            </div>
+
+            
+            <div class="qr-navbar__element pull-right"
+                 ng-show="route != 'upgrade/index' && route != 'upgrade/new' && route != 'upgrade/paymentform' && route != 'create/index' && route != 'create/new'">
+
+                <span class="qr-navbar-v2__plan-alert">
+                    <limit-current-plan ng-if="getLimitCurrentPlan()"></limit-current-plan>
+                </span>
+
+                <div class="qr-navbar__element qr-navbar__element--notifications">
+                    <qr-news-bell
+                            icon-as-svg="true"
+                            items="[{&#039;id&#039;:&#039;30&#039;,&#039;message&#039;:&#039;Looking for some QR Code inspo for holidays and occasions? Take a peek at these great use cases for Easter, Christmas, weddings, and much more.&#039;,&#039;updated_at&#039;:&#039;2021-03-04 10:13:10&#039;,&#039;icon&#039;:&#039;icon-qr-lightbulb&#039;,&#039;color&#039;:&#039;##4f5557&#039;,&#039;label&#039;:&#039;Get inspired&#039;,&#039;url&#039;:&#039;https://www.qr-code-generator.com/occasions/?utm_source=intercom&amp;utm_medium=link&amp;utm_campaign=qrcg_app_notification_bell&#039;},{&#039;id&#039;:&#039;29&#039;,&#039;message&#039;:&#039;Grab your free seat in an exclusive web session with Steve Wozniak, co-founder of Apple Computer Inc.&#039;,&#039;updated_at&#039;:&#039;2020-08-17 08:10:33&#039;,&#039;icon&#039;:&#039;icon-type-website&#039;,&#039;color&#039;:&#039;##4f5557&#039;,&#039;label&#039;:&#039;Save my spot&#039;,&#039;url&#039;:&#039;https://www.qr-code-generator.com/steve-wozniak/?utm_source=bell&amp;utm_medium=app&amp;utm_campaign=wozniak&amp;utm_content=event&amp;utm_term=link_signup&#039;},{&#039;id&#039;:&#039;28&#039;,&#039;message&#039;:&#039;Feeling stuck? Get popular QR Code ideas in your field now with the new Industry Recommendations feature.&#039;,&#039;updated_at&#039;:&#039;2020-03-31 07:24:22&#039;,&#039;icon&#039;:&#039;icon-search&#039;,&#039;color&#039;:&#039;#4f5557&#039;,&#039;label&#039;:&#039;Try now&#039;,&#039;url&#039;:&#039;https://app.qr-code-generator.com/create/new/?utm_source=bell&amp;utm_medium=app&amp;utm_campaign=march_20_newsletter&amp;utm_content=app&amp;utm_term=bell_app&#039;}]"
+                            mobile-mode="bellMobileMode">
+                    </qr-news-bell>
+                </div>
+
+                <div class="qr-navbar__element qr-navbar__element--help">
+                    <a href="https://help.qr-code-generator.com/en"
+                       onClick="_gaq.push(['_trackEvent','Headbar', 'Info', 'open intercom']);" target="_help" class="qr-navbar-v2__button-link">
+                        <div class="qr-navbar-v2__button"
+                             data-toggle="tooltip"
+                             data-trigger="hover"
+                             data-placement="bottom"
+                             title="Customer ID:11892404">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+                                <path class="b" d="M12,3a9,9,0,1,1-9,9,9,9,0,0,1,9-9m0-2A11,11,0,1,0,23,12,11,11,0,0,0,12,1ZM10.984,17.428a1.014,1.014,0,1,0,.3-.718,1.015,1.015,0,0,0-.3.718ZM12,15a1,1,0,0,0,1-1V13c0-.264.134-.483.624-1.023.131-.144.261-.267.385-.386a4.332,4.332,0,0,0,1.135-1.522A3.241,3.241,0,0,0,14.9,7.034,3.323,3.323,0,0,0,12,5.623,3.547,3.547,0,0,0,8.956,7.406a1,1,0,1,0,1.706,1.047A1.567,1.567,0,0,1,12,7.623a1.429,1.429,0,0,1,1.231.51,1.256,1.256,0,0,1,.077,1.144,2.459,2.459,0,0,1-.678.866c-.158.15-.32.306-.488.49A3.434,3.434,0,0,0,11,13v1A1,1,0,0,0,12,15Z"/>
+                            </svg>
+                        </div>
+                    </a>
+                </div>
+
+                <div class="qr-navbar__element">
+                    <div class="qr-navbar-v2__separator"></div>
+                </div>
+
+                <div class="qr-navbar__element">
+                    <div class="qr-navbar__dropdown qr-navbar__dropdown__text noselect qr-navbar-v2__account-btn {{dropdownOpen ? 'qr-navbar-v2__account-btn--active' : ''}}"
+                         ng-click="toggleDropdown()"
+                         ng-class="{'qr-navbar__dropdown--open': dropdownOpen}">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+                            <path class="b" d="M17,18a3,3,0,0,1,3,3H4a3,3,0,0,1,3-3H17m0-2H7a5,5,0,0,0-5,5,2,2,0,0,0,2,2H20a2,2,0,0,0,2-2,5,5,0,0,0-5-5ZM12,3c2.028,0,3.5,1.821,3.5,4.331,0,1.92-.737,5.169-3.5,5.169S8.5,9.251,8.5,7.331C8.5,4.821,9.972,3,12,3m0-2C8.962,1,6.5,3.6,6.5,7.331S8.339,14.5,12,14.5s5.5-3.441,5.5-7.169S15.038,1,12,1Z"/>
+                        </svg>
+                        <span>Account</span>
+                    </div>
+                    <div class="qr-navbar__account-dropdown-container qr-navbar-v2__account-dropdown">
+                        <div class="qr-navbar__scrollable-container">
+                            <ul class="qr-navbar__dropdown__container">
+                                <li class="qr-navbar-v2__account-dropdown-limit">
+                                    <limit-current-plan ng-if="getLimitCurrentPlan()"></limit-current-plan>
+                                </li>
+                                <li>
+                                    <a href="/account/">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16">
+                                            <path class="b" d="M7.977,8.384,11.1,12.409H4.851A2.635,2.635,0,0,0,2.279,14.5h11.4A2.635,2.635,0,0,0,11.1,12.409m0-1.5a4.13,4.13,0,0,1,4.124,4.136.953.953,0,0,1-.952.955H1.679a.953.953,0,0,1-.952-.955A4.13,4.13,0,0,1,4.85,10.909ZM7.977,1.5c-1.444,0-2.492,1.3-2.492,3.1,0,1.38.525,3.714,2.492,3.714s2.492-2.33,2.492-3.714c0-1.8-1.048-3.1-2.492-3.1m0-1.5c2.2,0,3.987,1.893,3.987,4.6S10.632,9.818,7.977,9.818,3.99,7.315,3.99,4.6,5.775,0,7.977,0Z" transform="translate(0.023)"/>
+                                        </svg>
+                                        My Account                                    </a>
+                                </li>
+                                                                    <li>
+                                        <a href="/usermanagement/">
+                                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16">
+                                                <path class="a" d="M12.918,13.113a1.584,1.584,0,0,1,1.57,1.387H4.977a1.584,1.584,0,0,1,1.57-1.387h6.371m0-1.5H6.547A3.082,3.082,0,0,0,3.465,14.7v.072A1.233,1.233,0,0,0,4.7,16H14.767A1.233,1.233,0,0,0,16,14.767V14.7a3.082,3.082,0,0,0-3.082-3.082Zm-3.185-7.9c1.128,0,1.947,1.037,1.947,2.467,0,.307-.055,2.994-1.947,2.994S7.785,6.486,7.785,6.179c0-1.43.819-2.467,1.948-2.467m0-1.5c-1.9,0-3.448,1.631-3.448,3.967s1.153,4.494,3.448,4.494S13.18,8.516,13.18,6.179,11.636,2.212,9.733,2.212ZM2.952,13.1a.75.75,0,0,0-.75-.75H1.513a1.637,1.637,0,0,1,1.619-1.42H5a.75.75,0,1,0,0-1.5H3.132A3.136,3.136,0,0,0,0,12.557a1.29,1.29,0,0,0,1.288,1.288H2.2A.75.75,0,0,0,2.952,13.1ZM5.438,7.74A.751.751,0,0,0,5.3,6.689a3.367,3.367,0,0,1-1-2.652C4.3,2.59,5.157,1.5,6.293,1.5a1.714,1.714,0,0,1,.818.205.75.75,0,1,0,.7-1.322A3.2,3.2,0,0,0,6.285,0C4.294,0,2.792,1.735,2.792,4.037A4.72,4.72,0,0,0,4.387,7.883.75.75,0,0,0,5.438,7.74Z" transform="translate(0 0)"/>
+                                            </svg>
+                                            User Management                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="/whitelabel/">
+                                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16">
+                                                <path class="a" d="M8.025,1.609c3.6,0,6.52,2.516,6.52,5.6a2.948,2.948,0,0,1-2.953,2.934H10.013A2.837,2.837,0,0,0,7.664,14.58,6.489,6.489,0,0,1,8.025,1.608M8.025.1a8,8,0,0,0,0,16,1.333,1.333,0,0,0,.99-2.231,1.328,1.328,0,0,1,1-2.214h1.579A4.453,4.453,0,0,0,16.05,7.211C16.05,3.282,12.457.1,8.025.1ZM4.915,7.371a1.147,1.147,0,1,0-.336.815,1.15,1.15,0,0,0,.336-.815ZM7.209,4.3a1.147,1.147,0,1,0-.335.815A1.15,1.15,0,0,0,7.209,4.3Zm3.827,0a1.152,1.152,0,1,0-.337.815,1.15,1.15,0,0,0,.337-.815Zm2.3,3.071A1.148,1.148,0,1,0,13,8.186,1.15,1.15,0,0,0,13.333,7.371Z" transform="translate(-0.05 -0.1)"/>
+                                            </svg>
+                                            Whitelabel Options                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="/api/?from=options">
+                                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16">
+                                                <path class="b" d="M8.845,1.5l.221.9.173.7.648.3a4.914,4.914,0,0,1,.849.5l.579.425.687-.2.883-.256.992,1.75-.652.643-.512.5.071.722c.016.167.026.335.026.506s-.01.339-.026.506l-.071.722.512.5.652.643-.992,1.75L12,11.855l-.687-.2-.579.425a4.914,4.914,0,0,1-.849.5l-.648.3-.173.7-.221.9H6.862l-.221-.9-.173-.7-.648-.3a4.914,4.914,0,0,1-.849-.5l-.579-.425-.687.2-.883.256-.992-1.75.652-.643L3,9.218,2.93,8.506c-.016-.167-.025-.335-.025-.506s.009-.339.025-.5L3,6.777l-.512-.5-.652-.643.992-1.75.883.256.687.2.579-.425a4.914,4.914,0,0,1,.849-.5l.648-.3.173-.7.221-.9H8.845M8.878,0H6.828A1.434,1.434,0,0,0,5.442,1.1l-.229.935a6.311,6.311,0,0,0-1.1.651L3.2,2.42a1.419,1.419,0,0,0-1.63.68L.545,4.905A1.478,1.478,0,0,0,.791,6.68l.677.666a6.626,6.626,0,0,0,0,1.308L.791,9.32A1.478,1.478,0,0,0,.545,11.1L1.57,12.91a1.418,1.418,0,0,0,1.63.672l.911-.266a6.311,6.311,0,0,0,1.1.651l.229.935A1.434,1.434,0,0,0,6.828,16h2.05a1.434,1.434,0,0,0,1.386-1.1l.229-.935a6.374,6.374,0,0,0,1.1-.651l.911.266a1.418,1.418,0,0,0,1.63-.672l1.025-1.81a1.478,1.478,0,0,0-.246-1.778l-.676-.666c.021-.215.032-.433.032-.654s-.012-.439-.032-.654l.676-.666A1.478,1.478,0,0,0,15.159,4.9L14.136,3.1a1.418,1.418,0,0,0-1.63-.672l-.911.266a6.374,6.374,0,0,0-1.1-.651L10.264,1.1A1.434,1.434,0,0,0,8.878,0ZM7.853,6.227A1.773,1.773,0,1,1,6.114,8,1.756,1.756,0,0,1,7.853,6.227m0-1.5A3.274,3.274,0,1,0,11.064,8,3.242,3.242,0,0,0,7.853,4.727Z" transform="translate(0.146 0)"/>
+                                            </svg>
+                                            API Keys                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="/upgrade/?from=options">
+                                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16">
+                                                <path class="a" d="M8,0a8,8,0,1,0,8,8A8,8,0,0,0,8,0ZM8,14.5A6.5,6.5,0,1,1,14.5,8,6.5,6.5,0,0,1,8,14.5Zm2.565-4.665A2.283,2.283,0,0,1,8.75,12.058v.306a.75.75,0,0,1-1.5,0v-.3a2.544,2.544,0,0,1-1.928-1.691A.75.75,0,1,1,6.771,9.99c.033.1.262.664,1.233.664,1.032,0,1.061-.735,1.061-.819,0-.28,0-.5-.511-.817a6.026,6.026,0,0,0-.863-.4A3.523,3.523,0,0,1,5.664,7.156,2.24,2.24,0,0,1,7.25,3.919V3.636a.75.75,0,0,1,1.5,0v.358A2.462,2.462,0,0,1,10.1,5.065a.75.75,0,1,1-1.28.782.975.975,0,0,0-.9-.5,1,1,0,0,0-.887.383A.791.791,0,0,0,7,6.472c.163.316.718.54,1.255.757a7.169,7.169,0,0,1,1.09.513A2.259,2.259,0,0,1,10.565,9.835Z"/>
+                                            </svg>
+                                            Features & Pricing                                        </a>
+                                    </li>
+                                                                <li>
+                                    <a href="https://help.qr-code-generator.com/en"
+                                       target="_help">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16">
+                                            <path class="a" d="M8,1.5A6.5,6.5,0,1,1,1.5,8,6.5,6.5,0,0,1,8,1.5M8,0a8,8,0,1,0,8,8A8,8,0,0,0,8,0ZM7.261,11.948a.738.738,0,1,0,.217-.522.738.738,0,0,0-.217.522ZM8,10.2a.75.75,0,0,0,.749-.751V8.727c0-.182.1-.346.448-.729.1-.105.19-.194.28-.28a3.18,3.18,0,0,0,.829-1.113,2.377,2.377,0,0,0-.178-2.228A2.437,2.437,0,0,0,8,3.339a2.6,2.6,0,0,0-2.232,1.31.75.75,0,1,0,1.28.782A1.135,1.135,0,0,1,8,4.839a1.018,1.018,0,0,1,.876.361.893.893,0,0,1,.054.81,1.764,1.764,0,0,1-.487.622c-.115.11-.234.224-.356.358A2.513,2.513,0,0,0,7.25,8.728v.728A.75.75,0,0,0,8,10.2Z"/>
+                                        </svg>
+                                        Help Center                                    </a>
+                                </li>
+                                <li class="divider-container">
+                                    <div class="divider"></div>
+                                </li>
+                                <li>
+                                    <a href="/site/logout/">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="16.001" height="16" viewBox="0 0 16.001 16">
+                                            <path class="a" d="M7.283,16H.75A.75.75,0,0,1,0,15.25V.75A.75.75,0,0,1,.75,0H7.283a.75.75,0,1,1,0,1.5H1.5v13H7.283a.75.75,0,1,1,0,1.5Zm3.5-11.273V6.5H4.032v3h6.75v1.774L14.111,8,10.782,4.727M9.9,2a.607.607,0,0,1,.43.178l5.493,5.4a.587.587,0,0,1,0,.842l-5.493,5.4a.615.615,0,0,1-1.047-.42V11H3.42a.877.877,0,0,1-.888-.866V5.866A.877.877,0,0,1,3.42,5H9.282V2.6A.6.6,0,0,1,9.9,2Z"/>
+                                        </svg>
+                                        Logout                                    </a>
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="qr-popup__layer qr-popup__layer--menu" ng-click="onLayerClick()"
+                             ng-class="getLayerClasses()"></div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="qr-navbar__trial-banner">
+                <qr-trial-left
+                        ng-if="isTrialMessageVisible() && route != 'upgrade/index' && route != 'upgrade/paymentform' && route != 'create/index' && route != 'create/new'"
+                        trial-date="getTrialDate()"></qr-trial-left>
+            </div>
+        </div>
+        <div class="qr-navbar-v2__alert"
+             ng-show="route == 'upgrade/paymentform' || route == 'upgrade/index' || route == 'upgrade/new'">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+                <path class="b" d="M6.57,3h0a1.009,1.009,0,0,1,.981.793l.758,3.56L7.268,8.389,6.145,9.507l.831,1.349a18.971,18.971,0,0,0,6.217,6.2l1.344.823,1.114-1.115L16.712,15.7l3.5.746a1.007,1.007,0,0,1,.793.98V19a2.01,2.01,0,0,1-2.012,2,2.074,2.074,0,0,1-.455-.051A20.489,20.489,0,0,1,3.051,5.467a2.033,2.033,0,0,1,.4-1.721A1.966,1.966,0,0,1,5,3H6.57m0-2H5A4.013,4.013,0,0,0,1.1,5.9a22.467,22.467,0,0,0,17,17,4.08,4.08,0,0,0,.89.1A4.009,4.009,0,0,0,23,19V17.429a3,3,0,0,0-2.376-2.936l-3.495-.746a2.047,2.047,0,0,0-.418-.044,2,2,0,0,0-1.417.587l-1.057,1.057A16.88,16.88,0,0,1,8.679,9.806l1.04-1.035a2,2,0,0,0,.547-1.838L9.507,3.376A3,3,0,0,0,6.57,1Z"/>
+            </svg>
+                <span>
+                Call our sales team: +1 646 712-9308            </span>
+        </div>
+    </div>
+
+<script>
+    app.controller('qrNavbarCtrl', ['$scope', '$element', '$window', 'account', 'gettextCatalog', function ($scope, $element, $window, account, gettextCatalog) {
+        var route = 'manage/new';
+
+
+        $scope.dropdownOpen = false;
+        $scope.menuOpen = false;
+
+        $scope.isMobile = ($window.innerWidth < 1025);
+        $scope.bellMobileMode = ($window.innerWidth <= 768);
+
+
+        $scope.toggleDropdown = function () {
+            $scope.dropdownOpen = !$scope.dropdownOpen;
+            setTimeout(function () {
+                $('.qr-navbar__scrollable-container').perfectScrollbar('update');
+            }, 0);
+        };
+
+        $scope.toggleMenu = function () {
+            if (!$(".qr-account-locked").is(":visible")) {
+                if ($(".qr-manage-panel").hasClass("qr-manage-panel--close")) {
+                    $(".qr-manage-panel").removeClass("qr-manage-panel--close");
+                    $(".qr-manage-content").removeClass("qr-manage-content--panel-close");
+                    $(".qr-manage-content").addClass("qr-manage-content--panel-open");
+                } else {
+                    $(".qr-manage-content").removeClass("qr-manage-content--panel-open");
+                    $(".qr-manage-panel").addClass("qr-manage-panel--close");
+                    $(".qr-manage-content").addClass("qr-manage-content--panel-close");
+                }
+            }
+        };
+
+        $scope.getLayerClasses = function () {
+            $scope.menuOpen = $(".qr-manage-panel").hasClass("qr-manage-panel--close");
+            if (!$(".qr-manage-panel").length) {
+                $scope.menuOpen = true;
+            }
+            if ($scope.dropdownOpen || (!$scope.menuOpen && $scope.isMobile)) {
+                return "qr-popup__layer--open"
+            }
+            if ($(".redesign").hasClass("full-preview")) {
+                return "qr-popup__layer--open"
+            }
+        };
+
+        $scope.onLayerClick = function () {
+            $scope.menuOpen = $(".qr-manage-panel").hasClass("qr-manage-panel--close");
+            $scope.dropdownOpen = false;
+
+            if ($scope.isMobile && !$scope.menuOpen) {
+                $scope.toggleMenu();
+            }
+
+            if ($(".redesign").hasClass("full-preview")) {
+                $(".redesign").removeClass("full-preview");
+            }
+        };
+
+        $scope.getNavbarStyle = function () {
+
+            //Remove bar
+            if (route === "create/index" || route === "create/new") {
+                return {
+                    background: 'none',
+                    position: 'relative'
+                }
+            }
+            if (route === 'create/editbarcode' || route.substr(0, 6) === 'admin/') {
+                return {
+                    position: 'relative'
+                }
+            }
+            if ($(".qr-account-locked").is(":visible")) {
+                return {
+                    zIndex: 20002
+                }
+            }
+        };
+
+        /**
+         * @returns {boolean}
+         */
+        $scope.isTrialMessageVisible = function () {
+            return account.getAccountStatus() === 'trial';
+        };
+
+        /**
+         * Get the trial date
+         * @returns {string}
+         */
+        $scope.getTrialDate = function () {
+            return account.getAccount().trial_date;
+        };
+
+        /**
+         * Get the limit current plan from user account. Check if there is only 10% left from the all qr codes.
+         * @returns {string}
+         */
+        $scope.getLimitCurrentPlan = function () {
+
+            var current = (account.getAccount().qrcodes || {}).current;
+            var allowed = (account.getAccount().qrcodes || {}).allowed;
+
+            var percenttoget = (allowed * 10) / 100;
+            if ((allowed - percenttoget) <= (current)) {
+                return 1;
+            }
+
+
+        };
+
+        /**
+         * Make real back action for pages edit, design and statistics.
+         * Otherwise work like a normal link.
+         * @param $event
+         */
+        $scope.goBack = function ($event) {
+
+            if (route === 'shortener/chart' || route === 'create/editbarcode' || route === 'create/index') {
+                $event.preventDefault();
+                window.history.back();
+            }
+        };
+
+        if (!$scope.isMobile) {
+            $(".qr-manage-panel").removeClass("qr-manage-panel--close");
+            $(".qr-manage-content").removeClass("qr-manage-content--panel-close");
+        }
+
+        angular.element(document).ready(function () {
+            $('.qr-navbar__scrollable-container').perfectScrollbar({includePadding: true, swipePropagation: false})
+        });
+
+        // To initialize the tooltip, we need a page load timeout
+        setTimeout(function () {
+            $element.find('[data-toggle="tooltip"]').tooltip({animation: false});
+        });
+
+    }]);
+</script>
+        
+		<div id="page">
+		<!-- section wrapper -->
+		
+		
+
+
+				<div id="content">
+			
+
+
+		</div>
+
+                    <qr-manage-view
+    is-admin="''"
+    aws-credentials="{&#039;url&#039;:&#039;//qrcgcustomers.s3-eu-west-1.amazonaws.com&#039;,&#039;inputs&#039;:{&#039;Content-Type&#039;:&#039;&#039;,&#039;acl&#039;:&#039;public-read&#039;,&#039;success_action_status&#039;:&#039;201&#039;,&#039;policy&#039;:&#039;eyJleHBpcmF0aW9uIjoiMjAyMS0wNC0wNVQxODo0Mzo0OVoiLCJjb25kaXRpb25zIjpbeyJidWNrZXQiOiJxcmNnY3VzdG9tZXJzIn0seyJhY2wiOiJwdWJsaWMtcmVhZCJ9LFsic3RhcnRzLXdpdGgiLCIka2V5IiwiYWNjb3VudDExODU1OTM5XC8iXSxbInN0YXJ0cy13aXRoIiwiJENvbnRlbnQtVHlwZSIsIiJdLHsic3VjY2Vzc19hY3Rpb25fc3RhdHVzIjoiMjAxIn0seyJ4LWFtei1jcmVkZW50aWFsIjoiQUtJQUpCMkhSTVhNWUJHUjJLSVFcLzIwMjEwNDA1XC9ldS13ZXN0LTFcL3MzXC9hd3M0X3JlcXVlc3QifSx7IngtYW16LWFsZ29yaXRobSI6IkFXUzQtSE1BQy1TSEEyNTYifSx7IngtYW16LWRhdGUiOiIyMDIxMDQwNVQxMjQzNDlaIn0seyJ4LWFtei1leHBpcmVzIjoiODY0MDAifSxbInN0YXJ0cy13aXRoIiwiJGZpbGVuYW1lIiwiIl0sWyJzdGFydHMtd2l0aCIsIiR2YXJuYW1lIiwiIl1dfQ==&#039;,&#039;X-amz-credential&#039;:&#039;AKIAJB2HRMXMYBGR2KIQ/20210405/eu-west-1/s3/aws4_request&#039;,&#039;X-amz-algorithm&#039;:&#039;AWS4-HMAC-SHA256&#039;,&#039;X-amz-date&#039;:&#039;20210405T124349Z&#039;,&#039;X-amz-expires&#039;:&#039;86400&#039;,&#039;X-amz-signature&#039;:&#039;32f6fb2b53cbb207e7144d14ec72400c1e66548c861967126cea63226d77095d&#039;}}"
+></qr-manage-view>
+
+        
+	</div>
+
+		<script>
+        var downloadTimeout;
+
+        $(document).ready(function () {
+            window.downloadhint = {
+                codedownload: [
+                    {
+                        element: '.highlightOnDownload',
+                        intro: !$("body").hasClass("no-tour")?'<h2>Scan me now!<\/h2><br>Always test your codes before printing.':'<h2>Your download has been started</h2>Your QR Code will be ready in a few seconds.',
+                        overlayClass: 'hidden',
+                        position: 'bottom',
+
+
+                        //onShow: function () {
+                        //    downloadTimeout = window.setTimeout(function () {
+                        //        window.qr.tour.stop();
+                        //    }, 5000);
+                        //},
+                        onHide: function () {
+                            $(".highlightOnDownload").removeClass("highlightOnDownload");
+                            clearTimeout(downloadTimeout);
+                        }
+                    }
+                ]
+            };
+
+
+        });
+
+
+	</script>
+
+
+
+	<div id='scanner_div' class="hidden">
+
+		<span class="top_text">Click to scan</span>
+		<span class="view wait "></span>
+
+		<span class="view click_no_code hidden"><span class="top_text">No QR Code found</span></span>
+		<span class="view decode_wait hidden"><span class="top_text">Decode QR Code...</span></span>
+		<span class="view decode_success "><span class="top_text">Readable</span>
+            <i class='icon icon-check'></i>
+        </span>
+		<span class="view decode_failed hidden"><span class="top_text">Not readable</span><i
+					class='icon icon-modal-close' style="color:red"></i></span>
+		<span class="bottom_text">Rightclick to close</span>
+	</div>
+	<!--SCANNER DIVs:end-->
+
+	<script type="text/javascript">
+        (function () {
+            var ga = document.createElement('script');
+            ga.type = 'text/javascript';
+            ga.async = true;
+            ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+            var s = document.getElementsByTagName('script')[0];
+            s.parentNode.insertBefore(ga, s);
+        })();
+	</script>
+	<script type="text/javascript">
+        window.TOURSETTINGS = {
+            showBullets: false,
+            skipLabel: "close",
+            doneLabel: "",
+            doneLabel: "close",
+            prevLabel: "<i class='icon-chevron-left'></i> back ",
+            nextLabel: "next <i class='icon-chevron-right'></i>",
+            showButtons: true,
+            keyboardNavigation: false,
+            exitOnOverlayClick: true
+        };
+	</script>
+
+
+	<script type="text/javascript">
+        //add translations
+        //Close colorpicker
+        extend(window, "qr.texts.general");
+
+        window.qr.texts.general.CLOSE = "Close";
+        //Remove logo
+        window.qr.texts.general.UPGRADE_YES = "See Plans and Pricing";
+        window.qr.texts.general.UPGRADE_NO_THANKS = "No thanks";
+        window.qr.texts.general.TOUR = "Explain this View";
+        $(document).ready(function () {
+            //Create the translation object
+            extend(window, "qr.texts.general");
+
+            //Track the login of the user
+			            mixpanel.identify("11892404");
+            mixpanel.track('account login');
+            mixpanel.people.set({"$last_login": ""});
+            mixpanel.people.increment("logins", 1);
+			
+			        });
+	</script>
+</div>
+
+
+</body>
+</html>

@@ -1,0 +1,12 @@
+<html>
+<body style="bacground-color:darkblue">
+<img id="ghost" style="position:absolute;" src="ghost.png">
+</body>
+    <script>
+        var timer=windows.setInterval(moveGhost,1000);
+        function moveGhost(){
+            document.getElementById("ghost").style.left=Math.random()*900+"px";
+            document.getElementById("ghost").styletop=Math.random()*600+"px";
+        }
+    </script>
+</html>
